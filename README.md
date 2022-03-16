@@ -1,9 +1,12 @@
-
+/* Discord bot made by Resoki /*
 
 **Modération:**
 !ban 
 !kick
 !slowmode
+
+**Filter de message**, dans le fichier Evenements/blackListWords sont écrit tous les mots banni du serveur,
+si un membre l'utilise, le robot supprimera sont message et l'avertira.  Vous pouvez bien sur ajouter / supprimer des mots
 
 !stats => Voir les statuts/infos du bot
 
