@@ -1,5 +1,11 @@
 /* Discord bot made by Resoki /*
 
+**Installation**
+Ouvrir un terminal et verifier qu'on se situe bien dans le dossier 
+Installer les dependances > *npm install*
+Changer le token dans Config/global.json
+Demarrer le bot > *npm start*
+
 **Modération:**
 !ban 
 !kick
