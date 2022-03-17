@@ -13,6 +13,13 @@ module.exports = {
    * @param {String[]} args
    */
   run: async (client, message, args) => {
+    const permission = message.member.permissions.has(Permissions.FLAGS.BAN_MEMBERS)
+      
+    if (!permission)
+      return message.reply({ 
+          contents: "❌ | Tu n'as pas la permission d'utiliser cette commande !"
+      });
+      
     const member = message.mentions.members.first();
     if (!member)
       return message.reply({ content: 'Merci de mentionner un membre à bannir' });
