@@ -9,38 +9,38 @@ module.exports = {
   run: async(client, message, args) => {
 
     const ErrorPermission = new MessageEmbed()
-    .setTitle('EarthSky • Giveaways')
+    .setTitle('Giveaways')
     .setColor('PURPLE')
-    .setDescription(`<:dnd:875144453726285834> Vous n'avez pas la permission.`)
-    .setFooter('play.earthsky.fr', 'https://cdn.discordapp.com/attachments/627845176819318824/893515970675638382/EarthSky_Icone_carre.png')
+    .setDescription(`❌ Vous n'avez pas la permission.`)
+    .setFooter('Giveaways', 'https://cdn.discordapp.com/attachments/627845176819318824/893515970675638382/EarthSky_Icone_carre.png')
 
 const ErrorChannel = new MessageEmbed()
-    .setTitle('EarthSky • Giveaways')
+    .setTitle('Giveaways')
     .setColor('PURPLE')
     .setTimestamp()
-    .setDescription(`<:dnd:875144453726285834> Veuillez préciser un salon.`)
-    .setFooter('play.earthsky.fr', 'https://cdn.discordapp.com/attachments/627845176819318824/893515970675638382/EarthSky_Icone_carre.png')
+    .setDescription(`🏢 Veuillez préciser un salon.`)
+    .setFooter('Giveaways', 'https://cdn.discordapp.com/attachments/627845176819318824/893515970675638382/EarthSky_Icone_carre.png')
 
 const ErrorDuration = new MessageEmbed()
-    .setTitle('EarthSky • Giveaways')
+    .setTitle('Giveaways')
     .setColor('PURPLE')
     .setTimestamp()
-    .setDescription(`<:dnd:875144453726285834> Veuillez préciser une durée (Exemple : d/m/s)`)
-    .setFooter('play.earthsky.fr', 'https://cdn.discordapp.com/attachments/627845176819318824/893515970675638382/EarthSky_Icone_carre.png')
+    .setDescription(`⌛ Veuillez préciser une durée (Exemple : d/m/s)`)
+    .setFooter('Giveaways', 'https://cdn.discordapp.com/attachments/627845176819318824/893515970675638382/EarthSky_Icone_carre.png')
 
 const ErrorWinnersCount = new MessageEmbed()
-    .setTitle('EarthSky • Giveaways')
+    .setTitle('Giveaways')
     .setColor('PURPLE')
     .setTimestamp()
-    .setDescription(`<:dnd:875144453726285834> Veuillez préciser un nombre de gagnant.`)
-    .setFooter('play.earthsky.fr', 'https://cdn.discordapp.com/attachments/627845176819318824/893515970675638382/EarthSky_Icone_carre.png')
+    .setDescription(`🏆 Veuillez préciser un nombre de gagnant.`)
+    .setFooter('Giveaways', 'https://cdn.discordapp.com/attachments/627845176819318824/893515970675638382/EarthSky_Icone_carre.png')
 
 const ErrorPrice = new MessageEmbed()
-    .setTitle('EarthSky • Giveaways')
+    .setTitle('Giveaways')
     .setColor('PURPLE')
     .setTimestamp()
-    .setDescription(`<:dnd:875144453726285834> Veuillez préciser le prix du gagnant`)
-    .setFooter('play.earthsky.fr', 'https://cdn.discordapp.com/attachments/627845176819318824/893515970675638382/EarthSky_Icone_carre.png')
+    .setDescription(`🎁 Veuillez préciser le prix du gagnant`)
+    .setFooter('Giveaways', 'https://cdn.discordapp.com/attachments/627845176819318824/893515970675638382/EarthSky_Icone_carre.png')
 
 if (!message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)) return message.channel.send({
     embeds: [ErrorPermission]
