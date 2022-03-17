@@ -30,3 +30,13 @@ dans config/global.json =>
 *activityBot* > Joue à '<votre texte ici>'
 si *statusBot* = true, le bot apparaitra en ligne
 si *statusBot* = false > le bot apparaitra en ne pas déranger
+
+**Ticket Systeme**
+!ticket Pour ouvrir le ticket > un message de log apparaitra dans un channel, veuillez verifier que dans Config/global.json 
+le *channelLog* corresponde au nom du channel où vous souhaitez que les logs soit écrit !;) 
+
+**Giveaways**
+créer un giveaways>
+
+commande + channel mentionné + temps (m/d) + nombre de winners + prix(tout attaché)
+exemple >   !giveaways #logs 1m 1 grade-ingame

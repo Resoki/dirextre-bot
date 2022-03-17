@@ -1,8 +1,9 @@
-const { Client, Collection, Intents } = require('discord.js')
-const fs = require('fs')
+const { Client, Collection, Intents } = require('discord.js');
+const fs = require('fs');
+const { GiveawaysManager } = require('discord-giveaways');
 
 
-const bot = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_PRESENCES, Intents.FLAGS.GUILD_MEMBERS] })
+const bot = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_PRESENCES, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_MESSAGE_REACTIONS] })
 bot.commands = new Collection()
 
 const { token, prefix } = require('./Config/global.json')
@@ -19,6 +20,17 @@ for (const folder of commandFolder) {
 		bot.commands.set(command.name, command)
 	}
 }
+
+const manager = new GiveawaysManager(bot, {
+  storage: './Commandes/Giveaway/giveaways.json',
+  default: {
+      botsCanWin: false,
+      embedColor: '#FAD02C',
+      embedColorEnd: '#F8EFE4',
+      reaction: '🎉'
+  }
+});
+bot.giveawaysManager = manager;
 
 bot.on('message', async message => {
   let prefix = '!';
