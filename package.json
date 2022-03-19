@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "axios": "^0.26.1",
+    "discord-anti-spam": "^2.7.3",
+    "discord-antiraid": "^2.2.0",
     "discord-giveaways": "^5.1.1",
     "discord.js": "^13.6.0",
     "moment": "^2.29.1",

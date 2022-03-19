@@ -1,4 +1,4 @@
-const { Client, Message, MessageEmbed } = require('discord.js');
+const { Client, Message, MessageEmbed,Permissions } = require('discord.js');
 
 module.exports = {
   name: 'slowmode',
@@ -13,6 +13,13 @@ module.exports = {
    * @param {String[]} args
    */
   run: async (client, message, args) => {
+
+    const permission = message.member.permissions.has(Permissions.FLAGS.BAN_MEMBERS)
+      
+    if (!permission)
+      return  message.reply(`❌ | Tu n'as pas la permission d'utiliser cette commande !`)
+      
+
     const amount = parseInt(args[0]);
     if (isNaN(amount))
       return message.reply({ content: ":x:Ce n'est pas une valeur correct" });

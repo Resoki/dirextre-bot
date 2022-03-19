@@ -18,23 +18,19 @@ module.exports = {
 
     if(channelName) {
       const embedDelete = new MessageEmbed().setTitle('INFO ❌').setDescription('Le ticket va être supprimé !')
-      message.channel.send({embeds: [embedDelete]})
-      let number = 4
-      setInterval(()=> {
-        if(!number) return;
-        number -= 1
-         message.channel.send(`${number}`)
-        if((number <1)){
-           let channelLog = message.guild.channels.cache.find(ch => ch.name.startsWith('logs'));
-           const date = new Date()
-           const embedLog = new Discord.MessageEmbed().setDescription(`${message.author.username} a **fermé** son ticket`)
-           .setFooter(`${date}`).setColor('RED')
-           channelLog.send({embeds: [embedLog]})
-           message.channel.delete()
-        }
-      }, 1000)
-
+      message.channel.send({embeds: [embedDelete]}).then((msg)=>{
+        setTimeout(()=> {
+          message.channel.delete()
+        }, 2000)
     
+      })
+      let channelLog = message.guild.channels.cache.find(ch => ch.name.startsWith(global.channelLog));
+
+      const date = new Date()
+      const embedLog = new Discord.MessageEmbed().setDescription(`${message.author.username} a **fermé** son ticket`)
+      .setFooter(`${date}`).setColor('RED')
+      channelLog.send({embeds: [embedLog]})
+
     } 
   }
   catch(error) {

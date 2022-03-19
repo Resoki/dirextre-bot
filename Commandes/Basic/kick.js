@@ -1,4 +1,5 @@
-const { Client, Message, MessageEmbed } = require('discord.js');
+const { Client, Message, MessageEmbed, Permissions} = require('discord.js');
+const global = require('../../Config/global.json')
 
 module.exports = {
   name: 'kick',
@@ -16,9 +17,7 @@ module.exports = {
     const permission = message.member.permissions.has(Permissions.FLAGS.BAN_MEMBERS)
       
     if (!permission)
-      return message.reply({ 
-          contents: "❌ | Tu n'as pas la permission d'utiliser cette commande !"
-      });
+      return  message.reply(`❌ | Tu n'as pas la permission d'utiliser cette commande !`)
       
     const member = message.mentions.members.first();
     if (!member)
@@ -42,6 +41,9 @@ module.exports = {
       .addField('Raison', `${reason}`)
       .setColor('RED')
       .setTimestamp();
+
+      let channelLog = message.guild.channels.cache.get(global.channelLog)
+      channelLog.send({embeds: [embed]})
 
     await member.kick({ reason }).catch((err) =>
       message.channel.send({
