@@ -8,11 +8,9 @@ module.exports = {
   name: 'verify',
   description: 'Verify Profil',
 
-  run: async (client, message, args) => {
-    const member = message.mentions.members.first() || message.guild.members.cache.find(member => member.user.username.toLowerCase() === args.join(" ").toLowerCase()) || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(member => member.displayName.toLowerCase() === args.join(" ").toLowerCase()) || message.member
+  run: async (message, args) => {
 
     try {
-
         if(db.get(`${message.author.id}_isVerified`)) {
             const embedAlreadyVerified = new MessageEmbed().setTitle('Verify').setDescription(`${message.author.username}, ton profil a déjà été verifié !`)
             return message.channel.send({embeds: [embedAlreadyVerified]})
@@ -46,12 +44,10 @@ module.exports = {
                channelLog.send({embeds: [embedLog]})
                return message.channel.send({embeds: [embedSucces]})
             }
-            console.log('CC')
         }
-        
     }
     catch(err) {
-        message.reply(err)
+        message.reply(`Une erreur a eu lieu : ${err}`)
     }
   },
 };

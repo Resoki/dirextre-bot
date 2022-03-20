@@ -32,7 +32,7 @@ module.exports = {
         return;
       } else {
         message.channel.send({
-          content: 'Le slowmode est maintenant de' + amount + ' seconde',
+          content: 'Le slowmode est maintenant de ' + amount + ' seconde',
         });
         return;
       }
@@ -41,12 +41,12 @@ module.exports = {
       message.channel.setRateLimitPerUser(amount * 60);
       if (amount > 1) {
         message.channel.send({
-          content: 'Le slowmode est maintenant de' + amount + ' minutes',
+          content: 'Le slowmode est maintenant de ' + amount + ' minutes',
         });
         return;
       } else {
         message.channel.send({
-          content: 'Le slowmode est maintenant de' + amount + ' minute',
+          content: 'Le slowmode est maintenant de ' + amount + ' minute',
         });
 
         return;
@@ -56,7 +56,7 @@ module.exports = {
       message.channel.setRateLimitPerUser(amount * 60 * 60);
       if (amount > 1) {
         message.channel.send({
-          content: 'Le slowmode est maintenant de' + amount + ' heures',
+          content: 'Le slowmode est maintenant de ' + amount + ' heures',
         });
         return;
       } else {

@@ -3,20 +3,16 @@ const global = require('../Config/global.json');
 const db = require('quick.db');
 
 module.exports = {
-	name: 'messageCreate',
+	name: 'guildMemberAdd',
 	once: false,
 	execute(client, member) {
-    const channel = client.guild.channels.cache.find(channel => channel.id === global.channelJoin);
-    let welcomeEmbed = new MessageEmbed().setTitle(`${member.user.tag}`).setDescription(global.messageJoin).setColor('RANDOM')
-    console.log(member.user.tag)
-
-
     try {
-     
-        
+        const channel = client.guild.channels.cache.find(channel => channel.id === global.channelJoin);
+        let welcomeEmbed = new MessageEmbed().setTitle(`Info`).setDescription(global.messageJoin).setColor('RANDOM')
+        channel.send({embeds: [welcomeEmbed]})
     } 
     catch(err) {
-        message.reply('Une erreur a eu lieu: ', err)
+        channel.send('Une erreur a eu lieu: ', err)
     }
 	},
 }
