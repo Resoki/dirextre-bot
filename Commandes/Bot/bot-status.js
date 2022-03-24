@@ -33,6 +33,6 @@ module.exports = {
         .addField("Network", `**❯ Latence :** ${client.ws.ping} ms`)
         .setTimestamp();
   
-        message.channel.send({ embeds: [embed] })
+        message.channel.send({ embeds: [embed] });
     }
 }

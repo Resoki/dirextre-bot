@@ -3,8 +3,6 @@ const { Client, Message, MessageEmbed,Permissions } = require('discord.js');
 module.exports = {
   name: 'slowmode',
   description: 'Slowmode a channel. Where the command is executed',
-  aliases: ['set-slowmode'],
-  emoji: '⏳',
   userperm: ['MANAGE_CHANNELS', 'SEND_MESSAGES'],
   botperm: ['MANAGE_CHANNELS', 'SEND_MESSAGES'],
   /**
@@ -13,62 +11,37 @@ module.exports = {
    * @param {String[]} args
    */
   run: async (client, message, args) => {
-
-    const permission = message.member.permissions.has(Permissions.FLAGS.BAN_MEMBERS)
+    const permission = message.member.permissions.has(Permissions.FLAGS.BAN_MEMBERS)  
+    if (!permission) return message.reply(`❌ | Tu n'as pas la permission d'utiliser cette commande !`);
       
-    if (!permission)
-      return  message.reply(`❌ | Tu n'as pas la permission d'utiliser cette commande !`)
-      
-
     const amount = parseInt(args[0]);
-    if (isNaN(amount))
-      return message.reply({ content: ":x:Ce n'est pas une valeur correct" });
+    if (isNaN(amount)) return message.reply({ content: ":x:Ce n'est pas une valeur correct" });
+    
     if (args[0] === amount + 's') {
       message.channel.setRateLimitPerUser(amount);
       if (amount > 1) {
-        message.channel.send({
-          content: 'Le slowmode est maintenant de ' + amount + ' secondes',
-        });
-        return;
+        return message.channel.send({content: 'Le slowmode est maintenant de ' + amount + ' secondes',});
       } else {
-        message.channel.send({
-          content: 'Le slowmode est maintenant de ' + amount + ' seconde',
-        });
-        return;
+        return message.channel.send({content: 'Le slowmode est maintenant de ' + amount + ' seconde'});
       }
     }
-    if (args[0] === amount + 'min') {
+    if (args[0] === amount + 'm') {
       message.channel.setRateLimitPerUser(amount * 60);
       if (amount > 1) {
-        message.channel.send({
-          content: 'Le slowmode est maintenant de ' + amount + ' minutes',
-        });
-        return;
+       return message.channel.send({content: 'Le slowmode est maintenant de ' + amount + ' minutes',});
       } else {
-        message.channel.send({
-          content: 'Le slowmode est maintenant de ' + amount + ' minute',
-        });
-
-        return;
+        return message.channel.send({content: 'Le slowmode est maintenant de ' + amount + ' minute',});
       }
     }
     if (args[0] === amount + 'h') {
       message.channel.setRateLimitPerUser(amount * 60 * 60);
       if (amount > 1) {
-        message.channel.send({
-          content: 'Le slowmode est maintenant de ' + amount + ' heures',
-        });
-        return;
+        return turnmessage.channel.send({content: 'Le slowmode est maintenant de ' + amount + ' heures',});
       } else {
-        message.channel.send({
-          content: 'Le slowmode est maintenant de ' + amount + ' heure',
-        });
-        return;
+       return message.channel.send({content: 'Le slowmode est maintenant de ' + amount + ' heure',});
       }
     } else {
-      message.channel.send({
-        content: 'Tu peux seulement utilisé des secondes / minutes / heures.',
-      });
+      message.channel.send({content: 'Tu peux seulement utilisé des secondes(s) / minutes(m) / heures.(h)',});
     }
   },
 };

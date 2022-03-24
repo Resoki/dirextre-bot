@@ -6,7 +6,7 @@ const global = require('./Config/global.json')
 const bot = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_PRESENCES, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_MESSAGE_REACTIONS] })
 bot.commands = new Collection()
 
-const { token, prefix } = require('./Config/global.json')
+const { token } = require('./Config/global.json')
 
 console.log(`Chargement du dossier Commandes`)
 console.log(``)
@@ -30,6 +30,7 @@ const manager = new GiveawaysManager(bot, {
       reaction: '🎉'
   }
 });
+
 bot.giveawaysManager = manager;
 
 const AntiSpam = require("discord-anti-spam");
@@ -59,9 +60,7 @@ const antiSpam = new AntiSpam({
   // And many more options... See the documentation.
 });
 
-
 bot.on("messageCreate", (message) => antiSpam.message(message));
-
 
 // Anti Raid
 const {AntiRaid} = require('discord-antiraid');
@@ -76,11 +75,11 @@ const antiraid = new AntiRaid(bot, {
     exemptRoles: [],
     exemptEvent: [],
     reason: "discord-antiraid"
-})
+});
 
 antiraid.on("punish", (member, reason, sanction) => {
   member.guild.channels.cache.get(global.channelAntiRaid).send(`${member.user.username} a été banni pour tentative de raid`)
-})
+});
 
 
 bot.on('message', async message => {
@@ -93,7 +92,8 @@ bot.on('message', async message => {
   const cmd = bot.commands.get(command)
   if(cmd) cmd.run(bot, message, args)
 
-})
+});
+
 console.log(``)
 
 console.log(`Chargement du dossier Evenements`)
@@ -110,6 +110,7 @@ for (const file of eventFolder) {
     console.log(`> - ${file} chargé avec succès.`)
 	}
 }
+
 console.log(` `)
 
 bot.once('ready', () => {
@@ -120,12 +121,10 @@ bot.on('interactionCreate', async interaction => {
 	if (!interaction.isButton()) return;
 
 	if (interaction.customId === 'primary') {
-    
      interaction.guild.roles.fetch(global.roleIdOne)
      .then((role)=>{
       interaction.member.roles.add(role); 
      }).catch(console.error())
-
 
 		await interaction.reply({ content: 'Rôle ajouté avec succes ! '})
 	}
@@ -138,4 +137,5 @@ bot.on('interactionCreate', async interaction => {
 		await interaction.reply({ content: 'Rôle ajouté avec succes ! '})
 	}
 });
+
 bot.login(token)

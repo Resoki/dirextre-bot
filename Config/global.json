@@ -1,5 +1,5 @@
 {
-  "token": "ODQ3Mzc3MzI1MTM2ODA1OTA4.YK9LoQ.osTB8_ImnRtSuqaz_PAfu7OSSSo",
+  "token": "ODQ3Mzc3MzI1MTM2ODA1OTA4.YK9LoQ.Ba4adJR1-CPvbnGytqzffDvgP0Y",
   "prefix": "!",
 
   "channelJoin": "895272494007717939",
@@ -7,6 +7,7 @@
   
   "activityBot":"etre un Bot",
   "statusBot": false,
+  "enabledSimsimi": false,
 
 
   "channelLog": "945311880665239552",

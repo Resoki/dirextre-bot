@@ -10,20 +10,13 @@ module.exports = {
      * @param {String[]} args 
      */
   run: async (client, message, args) => {
-
     const permission = message.member.permissions.has(Permissions.FLAGS.BAN_MEMBERS)
-      
-    if (!permission)
-      return message.reply(`❌ | Tu n'as pas la permission d'utiliser cette commande !`)
+    if (!permission) return message.reply(`❌ | Tu n'as pas la permission d'utiliser cette commande !`)
       
     const member = message.mentions.members.first();
     if (!member) return message.reply({ content: 'Merci de mentionner un membre à mute' });
     if (message.member.roles.highest.position <= member.roles.highest.position)
-      return message.reply({
-        content:
-          "Tu ne peux pas bannir ce membre car il a le même rôle, ou un rôle superieur",
-      });
-
+      return message.reply({content:"Tu ne peux pas bannir ce membre car il a le même rôle, ou un rôle superieur",});
 
     if(!args[1]) return message.reply('Precisez une raison')
     const reason = args[1]
@@ -32,7 +25,6 @@ module.exports = {
     .displayAvatarURL({ size: 512, dynamic: true });
 
     const mutedRole = message.guild.roles.cache.get(global.roleMute);
-
 
     member.roles.add(mutedRole)
     const embed = new MessageEmbed() .setTitle(`Le membre ${member.user.username} a été mute du serveur !`)

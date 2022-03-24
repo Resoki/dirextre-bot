@@ -15,19 +15,13 @@ module.exports = {
    */
   run: async (client, message, args) => {
     const permission = message.member.permissions.has(Permissions.FLAGS.BAN_MEMBERS)
-      
-    if (!permission)
-      return  message.reply(`❌ | Tu n'as pas la permission d'utiliser cette commande !`)
+    if (!permission) return  message.reply(`❌ | Tu n'as pas la permission d'utiliser cette commande !`)
       
     const member = message.mentions.members.first();
-    if (!member)
-    return message.reply({ content: 'Merci de mentionner un membre à kick' });
+    if (!member) return message.reply({ content: 'Merci de mentionner un membre à kick' });
 
     if (message.member.roles.highest.position <= member.roles.highest.position)
-      return message.reply({
-        content:
-          "Tu ne peux pas kick ce membre car il a le même rôle, ou un rôle superieur",
-      });
+      return message.reply({ content:"Tu ne peux pas kick ce membre car il a le même rôle, ou un rôle superieur",});
 
     const reason = args.slice(1).join(' ') || 'Pas de raison evoqué !';
     const memberPfp = client.users.cache
@@ -42,8 +36,8 @@ module.exports = {
       .setColor('RED')
       .setTimestamp();
 
-      let channelLog = message.guild.channels.cache.get(global.channelLog)
-      channelLog.send({embeds: [embed]})
+    let channelLog = message.guild.channels.cache.get(global.channelLog)
+    channelLog.send({embeds: [embed]})
 
     await member.kick({ reason }).catch((err) =>
       message.channel.send({

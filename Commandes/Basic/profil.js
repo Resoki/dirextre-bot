@@ -10,15 +10,12 @@ module.exports = {
   run: async (client, message, args) => {
     const member = message.mentions.members.first() || message.guild.members.cache.find(member => member.user.username.toLowerCase() === args.join(" ").toLowerCase()) || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(member => member.displayName.toLowerCase() === args.join(" ").toLowerCase()) || message.member
 
-    const flags = member.user.flags.toArray();
-
     const status = {
         online: '<:online:875144454695182346>',
         idle: '<:idle:875143042024210502>',
         dnd: '<:dnd:875144453726285834>',
         offline: '<:offline:875144454321868851>'
     }
-
 
     const embed = new MessageEmbed()
         .setColor('PURPLE')

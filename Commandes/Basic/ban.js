@@ -14,10 +14,10 @@ module.exports = {
    * @param {String[]} args
    */
   run: async (client, message, args) => {
-    const permission = message.member.permissions.has(Permissions.FLAGS.BAN_MEMBERS)
+    const permission = message.member.permissions.has(Permissions.FLAGS.BAN_MEMBERS);
       
     if (!permission)
-      return message.reply(`❌ | Tu n'as pas la permission d'utiliser cette commande !`)
+      return message.reply(`❌ | Tu n'as pas la permission d'utiliser cette commande !`);
       
     const member = message.mentions.members.first();
     if (!member)
@@ -25,9 +25,7 @@ module.exports = {
 
     if (message.member.roles.highest.position <= member.roles.highest.position)
       return message.reply({
-        content:
-          "Tu ne peux pas bannir ce membre car il a le même rôle, ou un rôle superieur",
-      });
+        content:"Tu ne peux pas bannir ce membre car il a le même rôle, ou un rôle superieur",});
 
     const reason = args.slice(1).join(' ') || 'Pas de raison evoqué !';
     const memberPfp = client.users.cache
@@ -41,15 +39,13 @@ module.exports = {
       .addField('Raison', `${reason}`)
       .setColor('RED')
       .setTimestamp();
-
       
-    let channelLog = message.guild.channels.cache.get(global.channelLog)
-      channelLog.send({embeds: [embed]})
+    let channelLog = message.guild.channels.cache.get(global.channelLog);
+    channelLog.send({embeds: [embed]});
 
-    await member.ban({ reason }).catch((err) =>
-      message.channel.send({
-        content: `Une erreur a eu lieu en tentant le ban !\nMessage d'erreur :\n\`\`\`yml\n${err}\n\`\`\``,
-      })
+    await member.ban({ reason })
+    .catch((err) =>
+      message.channel.send({content: `Une erreur a eu lieu en tentant le ban !\nMessage d'erreur :\n\`\`\`yml\n${err}\n\`\`\``,})
     );
     message.channel.send({ embeds: [embed] });
   },

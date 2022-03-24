@@ -7,7 +7,6 @@ module.exports = {
   description: 'Open Ticket',
   run: async(client, message, args) => {
     const channelName =`ticket-${message.author.username}`;
-
     let display = message.guild.channels.cache.find(ch => ch.name.startsWith(channelName.toLowerCase()));
 
     if(display){
@@ -24,22 +23,20 @@ module.exports = {
               deny: ["VIEW_CHANNEL", "SEND_MESSAGES"],
           }
           ],
-      });
+        })
       const embedSuccess = new MessageEmbed().setTitle('INFO').setDescription(`Channel crée avec succès **${channelName}** 📝`).setColor('RANDOM')
       message.channel.send({embeds: [embedSuccess]});
-      let channelLog = message.guild.channels.cache.find(ch => ch.name.startsWith(global.channelLog));
+      let channelLog = message.guild.channels.cache.find(ch => ch.id === global.channelLog);
       if(!channelLog) return message.reply('Attention ! le channel log est incorrect')
 
       const date = new Date()
       const embedLog = new Discord.MessageEmbed().setDescription(`${message.author.username} a **ouvert** un ticket : #${channelName} 📝`)
       .setFooter(`${date}`).setColor('GREEN')
-      channelLog.send({embeds: [embedLog]})
+      return channelLog.send({embeds: [embedLog]})
   }
-  catch (error) {
-      console.log(error);
-      message.channel.send(`Erreur lors de la création du channel: '${channelName}'. \nError: ${error}`);
-      return;
-  }
+    catch (error) {
+        return message.channel.send(`Erreur lors de la création du channel: '${channelName}'. \nError: ${error}`);
+    }
   }
    
 }

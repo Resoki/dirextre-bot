@@ -1,5 +1,4 @@
 const { MessageEmbed } = require('discord.js')
-const blackListWords = require('./blackListWords')
 const global = require('../Config/global.json');
 
 module.exports = {
@@ -13,7 +12,6 @@ module.exports = {
                 return message.channel.send({embeds: [inviteForbiden]})
             } 
         }
-
        if(global.antiLinks === true) {
         const linkForbiden = new MessageEmbed().setTitle('Anti-Links').setDescription(`Il est interdit de mettre des liens !`)
         if(message.content.includes('https')) {
