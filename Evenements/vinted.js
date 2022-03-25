@@ -6,7 +6,7 @@ const abonne = require('../Commandes/VintedSystem/abonne');
 const { MessageEmbed } = require('discord.js');
 
 module.exports = {
-	name: 'ready',
+	name: '',
 	once: true,
 	execute(message) {
     //Joue à >
