@@ -1,29 +1,17 @@
 {
-  "token": "ODQ3Mzc3MzI1MTM2ODA1OTA4.YK9LoQ.JLSR5iOj9Xs9CXIGd-eK3SQxqIQ",
+  "token": "ODQ3Mzc3MzI1MTM2ODA1OTA4.YK9LoQ.wnTbuf0qrtuk3hPQa6ks3hHyyNI",
   "prefix": "!",
 
   "channelJoin": "895272494007717939",
-  "messageJoin": "Un nouveau membre a rejoin le serveur !",
+  "channelLog": "945311880665239552",
+
+  "ticketCategoryIg" : "957263723490312244",
+  "ticketCategorySite" : "957263782600671342",
+  "ticketCategoryAutres" : "957264786649939968",
+
   
   "activityBot":"etre un Bot",
   "statusBot": false,
-  "enabledSimsimi": false,
 
-
-  "channelLog": "945311880665239552",
-  "channelBoost": "897884312446320670",
-  "roleMute": "855063362974384138",
-
-  "verifiedRole": "856805102459682826",
-
-  "antiLinks": true,
-  "antiInvites": true,
-  "channelAntiRaid": "899644363821449267",
-
-  "roleReactNameOne": "Aventurier 😗",
-  "roleReactNameTwo": "Guerrier 🎉",
-  "roleIdOne": "856938569359949834",
-  "roleIdTwo": "845730162750390294",
-
-  "antiSpamIntervalMax": 2000
+  "roleMute": "855063362974384138"
 }

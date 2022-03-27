@@ -24,11 +24,9 @@ module.exports = {
         }, 2000)
     
       })
-      let channelLog = message.guild.channels.cache.find(ch => ch.name.startsWith(global.channelLog));
+      let channelLog = message.guild.channels.cache.find(ch => ch.id.startsWith(global.channelLog));
 
-      const date = new Date()
-      const embedLog = new Discord.MessageEmbed().setDescription(`${message.author.username} a **fermé** son ticket`)
-      .setFooter(`${date}`).setColor('RED')
+      const embedLog = new Discord.MessageEmbed().setDescription(`${message.author.username} a **fermé** son ticket`).setColor('RED')
       channelLog.send({embeds: [embedLog]})
 
     } 

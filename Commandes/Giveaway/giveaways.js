@@ -12,35 +12,35 @@ module.exports = {
     .setTitle('Giveaways')
     .setColor('PURPLE')
     .setDescription(`❌ Vous n'avez pas la permission.`)
-    .setFooter('Giveaways', 'https://cdn.discordapp.com/attachments/627845176819318824/893515970675638382/EarthSky_Icone_carre.png')
+    .setFooter('Giveaways', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT74n7_Iisaqt3RKlfY4SyvVfP72_Qq9vjBzJ_Qea4EsR62aZzynLQRhgsyHS1pGSQibM4&usqp=CAU')
 
 const ErrorChannel = new MessageEmbed()
     .setTitle('Giveaways')
     .setColor('PURPLE')
     .setTimestamp()
     .setDescription(`🏢 Veuillez préciser un salon.`)
-    .setFooter('Giveaways', 'https://cdn.discordapp.com/attachments/627845176819318824/893515970675638382/EarthSky_Icone_carre.png')
+    .setFooter('Giveaways', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT74n7_Iisaqt3RKlfY4SyvVfP72_Qq9vjBzJ_Qea4EsR62aZzynLQRhgsyHS1pGSQibM4&usqp=CAU')
 
 const ErrorDuration = new MessageEmbed()
     .setTitle('Giveaways')
     .setColor('PURPLE')
     .setTimestamp()
     .setDescription(`⌛ Veuillez préciser une durée (Exemple : d/m/s)`)
-    .setFooter('Giveaways', 'https://cdn.discordapp.com/attachments/627845176819318824/893515970675638382/EarthSky_Icone_carre.png')
+    .setFooter('Giveaways', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT74n7_Iisaqt3RKlfY4SyvVfP72_Qq9vjBzJ_Qea4EsR62aZzynLQRhgsyHS1pGSQibM4&usqp=CAU')
 
 const ErrorWinnersCount = new MessageEmbed()
     .setTitle('Giveaways')
     .setColor('PURPLE')
     .setTimestamp()
     .setDescription(`🏆 Veuillez préciser un nombre de gagnant.`)
-    .setFooter('Giveaways', 'https://cdn.discordapp.com/attachments/627845176819318824/893515970675638382/EarthSky_Icone_carre.png')
+    .setFooter('Giveaways', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT74n7_Iisaqt3RKlfY4SyvVfP72_Qq9vjBzJ_Qea4EsR62aZzynLQRhgsyHS1pGSQibM4&usqp=CAU')
 
 const ErrorPrice = new MessageEmbed()
     .setTitle('Giveaways')
     .setColor('PURPLE')
     .setTimestamp()
     .setDescription(`🎁 Veuillez préciser le prix du gagnant`)
-    .setFooter('Giveaways', 'https://cdn.discordapp.com/attachments/627845176819318824/893515970675638382/EarthSky_Icone_carre.png')
+    .setFooter('Giveaways', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT74n7_Iisaqt3RKlfY4SyvVfP72_Qq9vjBzJ_Qea4EsR62aZzynLQRhgsyHS1pGSQibM4&usqp=CAU')
 
 if (!message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)) return message.channel.send({
     embeds: [ErrorPermission]

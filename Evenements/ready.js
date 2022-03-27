@@ -10,12 +10,5 @@ module.exports = {
 		bot.user.setActivity(global.activityBot);
 		bot.user.setStatus(global.statusBot == true ? 'online' : 'dnd');
 
-		const doSomething = () => {
-			console.log('doSomething');
-		
-		}
-
-		const task = cron.schedule('* * * * *', () => { doSomething()});
-		task.start()
 	},
 }
