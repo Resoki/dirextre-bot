@@ -9,8 +9,5 @@ module.exports = {
     //Joue à >
 		bot.user.setActivity(global.activityBot);
 		bot.user.setStatus(global.statusBot == true ? 'online' : 'dnd');
-		cron.schedule('* * * * *', () => {
-			console.log('Bot ON');
-		  });
 	},
 }

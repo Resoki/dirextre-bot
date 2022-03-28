@@ -11,7 +11,7 @@
 
   
   "activityBot":"etre un Bot",
-  "statusBot": false,
+  "statusBot": true,
 
   "roleMute": "855063362974384138"
 }

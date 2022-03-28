@@ -29,11 +29,14 @@ si *statusBot* = false > le bot apparaitra en ne pas déranger
 *---------------------------V2--------------------------*
 
 **Ticket Systeme**
-!openticket Pour ouvrir le ticket > un message de log apparaitra dans un channel, veuillez verifier que dans Config/global.json 
+!openticket 
+-Cliquez sur le bouton pour ouvrir le ticket, un ticket sera ouvert, ensuite selectionnez la catégorie pour être 
+moove dans les bons channels.
+
 le *channelLog* corresponde au nom du channel où vous souhaitez que les logs soit écrit !;) 
 Dans le ticket selectionnez la categorie pour moove le ticket
-!closeticket pour fermer le ticket
 
+!closeticket pour fermer le ticket ou en cliquant sur le bouton
 
 **Giveaways**
 créer un giveaways>
@@ -47,3 +50,8 @@ exemple >   *!giveaways #logs 1m 1 grade-ingame*
 
 **Membercount**
 !membercount pour afficher le nombre de membre
+
+**Invites Systeme**
+Le classement des membres qui ont le plus d'invitations
+!topinvites
+!topinvites + nombre de membre a afficher

@@ -4,45 +4,61 @@ const { MessageEmbed, MessageActionRow, MessageSelectMenu } = require('discord.j
 const global = require('../../Config/global.json')
 
 module.exports = {
-  name: 'getinvi',
+  name: 'topinvites',
   description: 'Open Ticket',
   run: async(client, message, args) => {
-    try {
-        const invitesCounter = {}
-        
-        message.guild.invites.fetch()
-        .then((invites) => {
-            invites.forEach(invite => {
-                console.log("invites", invite)
-                const {uses, inviter} = invite
-                const {username, discriminator} = inviter
+    let numberTop = 0;
+    if(!args[0])numberTop = 10;
+    if(args[0]) numberTop = args[0]
+    if(!Number(numberTop)) return message.reply('Tu dois renseigner un nombre !')
+    if(numberTop > 15) return message.reply('Tu ne peux pas afficher plus de 15 membres !')
+        message.guild.invites.fetch().then((invites) => {
+          const inviteCounter = {
+           
+          }
+          const embed = new MessageEmbed().setTitle('🏆  Top Invitation 🏆 ').setDescription('Top invites on server')
+          
+    
+          invites.forEach((invite) => {
+            const { uses, inviter } = invite
+            const { username, discriminator } = inviter
+    
+            const name = `${username}#${discriminator}`;
 
-                console.log(uses, username, discriminator)
-
-                const name = `${username}#${discriminator}`;
-
-                invitesCounter[name] = (invitesCounter[name] || 0) + uses
-
-                
-            })
-            let replyText = 'Invites: '
-
-            for (const invite in invitesCounter) {
-                console.log(invite)
-                const count = invitesCounter[invite]
-                replyText += `\n${message.author.username} a été invité par ${invite} - ${count} invitations !`
+    
+            inviteCounter[name] = (inviteCounter[name] || 0) + uses
+          })
+    
+          let replyText = 'Invites:'
+    
+          const sortedInvites = Object.keys(inviteCounter).sort(
+            (a, b) => inviteCounter[b] - inviteCounter[a]
+          )
+    
+          console.log(sortedInvites)
+    
+          sortedInvites.length = numberTop
+    
+          for (const [iteration,invite] of sortedInvites.entries()) {
+            const count = inviteCounter[invite];
+            if((iteration+1) === 1) {
+              embed.addField(`#${iteration + 1} 🥇`, `\n**${invite}** a invité **${!count ? 0 : count}** membres!`).setColor('RANDOM')
             }
-            message.reply(replyText)
+            else if((iteration+1) === 2) {
+              embed.addField(`#${iteration + 1} 🥈`, `\n**${invite}** a invité **${!count ? 0 : count}** membres!`).setColor('RANDOM')
+            }
+            else if((iteration+1) === 3) {
+              embed.addField(`#${iteration + 1} 🥉`, `\n**${invite}** a invité **${!count ? 0 : count}** membres!`).setColor('RANDOM')
+            }
+            else {
+              embed.addField(`#${iteration + 1}`, `\n${invite} a invité **${!count ? 0 : count}** membres!`).setColor('RANDOM')
+            }
+            
+          }
+
+          message.channel.send({embeds: [embed]})
         })
+  
 
-
-
-
-        
-  }
-    catch (error) {
-        //return message.channel.send(`Erreur . \nError: ${error}`);
-    }
-  }
-   
-}
+      }
+          }

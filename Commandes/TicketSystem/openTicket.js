@@ -9,14 +9,14 @@ module.exports = {
   run: async(client, message, args) => {
     try {
         const channelName =`ticket-${message.author.username}`;
-        const embed = new MessageEmbed().setTitle('Ticket 🎫').setDescription('Sélectionnez la catégorie de votre ticket pour en ouvrir un !')
+        const embed = new MessageEmbed().setTitle('Ticket ✉️').setDescription('Sélectionnez la catégorie de votre ticket pour en ouvrir un !')
         .setFooter(`Vulcarya.fr ${new Date()}`).setColor('BLUE')
 
         const row = new MessageActionRow()
             .addComponents(
             new MessageButton()
                 .setCustomId('open-ticket')
-                .setLabel('open ticket')
+                .setLabel('Ouvrir un ticket ✉️')
                 .setStyle('PRIMARY'),
                
             );

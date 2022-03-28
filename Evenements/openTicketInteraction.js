@@ -1,41 +1,37 @@
+const { MessageButton } = require('discord.js');
 const global = require('../Config/global.json');
-const cron = require('node-cron');
-const db = require('quick.db')
 
 module.exports = {
 	name: 'interactionCreate',
 	once: false,
 	execute(interaction, bot) {
-    //Joue à >
-    console.log(interaction.member)
-    try {
-    const channelName =`ticket-${interaction.member.user.username}`;
-    console.log(bot.channels)
+        if(interaction.isButton()) return;
+        console.log(interaction.member)
+        try {
+        const channelName =`ticket-${interaction.member.user.username}`;
+        console.log(bot.channels)
 
-    const channel = bot.channels.cache.find(ch => ch.name.startsWith(channelName.toLowerCase()));
-    
-	if(interaction.values[0] === 'select_probleme_ig') {
-           //category Probleme IG
-        channel.setParent(`${global.ticketCategoryIg}`)
-       
+        const channel = bot.channels.cache.find(ch => ch.name.startsWith(channelName.toLowerCase()));
+        
+        if(interaction.values[0] === 'select_probleme_ig') {
+            channel.setParent(`${global.ticketCategoryIg}`)
+            interaction.reply('Ton ticket a été moove dans la section Problème IG')
+        }
+
+        if(interaction.values[0] === 'select_probleme_site') {
+            channel.setParent(`${global.ticketCategorySite}`)
+            interaction.reply('Ton ticket a été moove dans la section Problème Site')
+        }
+
+        if(interaction.values[0] === 'select-others') {
+            channel.setParent(`${global.ticketCategoryAutres}`)
+            interaction.reply('Ton ticket a été moove dans la section Autres')
+        
+       channel.send({embeds: [embed], components: [row]})
+        }
     }
-
-    if(interaction.values[0] === 'select_probleme_site') {
-        channel.setParent(`${global.ticketCategorySite}`)
-       
-
-    }
-
-    if(interaction.values[0] === 'select-others') {
-   
-        channel.setParent(`${global.ticketCategoryAutres}`)
-     
-
-    }
-}
-    catch(err) {
-        console.log(err)
-    }
-
-	},
+        catch(err) {
+            console.log(err)
+        }
+},
 }
