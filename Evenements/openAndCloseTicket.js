@@ -11,12 +11,8 @@ module.exports = {
     
 	if(interaction.customId === 'open-ticket') {
         if(alreadyChannel) return interaction.reply(`${interaction.member.user.username}, tu as déjà un ticket d'ouvert`)
-        interaction.channel.send(`${interaction.member.user.username}, ton channel a été ouvert`).then((msg) => {
-            setTimeout = () =>{
-                msg.delete()
-            , 4000}
+        interaction.channel.send(`${interaction.member.user.username}, ton channel a été ouvert`);
           
-        })
 
         let display =  interaction.member.guild.channels.create(channelName, {
             type: "GUILD_TEXT",
@@ -70,17 +66,19 @@ module.exports = {
     if(interaction.customId === 'close-ticket') {
         let alreadyChannel = bot.channels.cache.find(c => c.name === `${channelName}`);    
        
-
         const embedDelete = new MessageEmbed().setTitle('INFO ❌').setDescription('Le ticket va être supprimé !')
         interaction.channel.send({embeds: [embedDelete]}).then((msg)=>{
           setTimeout(()=> {
             alreadyChannel.delete();
             let channelLog = interaction.guild.channels.cache.find(ch => ch.id.startsWith(global.channelLog));
-            const embedLog = new MessageEmbed().setDescription(`${interaction.member.user.username} a **fermé** son ticket`).setColor('RED')
+            const embedLog = new MessageEmbed().setDescription(`${interaction.member.user.username} a **fermé** le ticket`).setColor('RED')
             channelLog.send({embeds: [embedLog]})
           }, 2000)
       
         })
+    }
+    if(interaction.customId === 'reclame-ticket'){
+        interaction.channel.send(`Le ticket sera traité par ${interaction.member.user.username}`)
     }
 }
     catch(err) {

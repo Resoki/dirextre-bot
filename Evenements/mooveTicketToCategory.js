@@ -6,10 +6,8 @@ module.exports = {
 	once: false,
 	execute(interaction, bot) {
         if(interaction.isButton()) return;
-        console.log(interaction.member)
         try {
         const channelName =`ticket-${interaction.member.user.username}`;
-        console.log(bot.channels)
 
         const channel = bot.channels.cache.find(ch => ch.name.startsWith(channelName.toLowerCase()));
         
@@ -27,7 +25,7 @@ module.exports = {
             channel.setParent(`${global.ticketCategoryAutres}`)
             interaction.reply('Ton ticket a été moove dans la section Autres')
         
-       channel.send({embeds: [embed], components: [row]})
+       channel.send({components: [row]})
         }
     }
         catch(err) {
