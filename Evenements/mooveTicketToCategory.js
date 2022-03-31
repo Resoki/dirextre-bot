@@ -25,7 +25,6 @@ module.exports = {
             channel.setParent(`${global.ticketCategoryAutres}`)
             interaction.reply('Ton ticket a été moove dans la section Autres')
         
-       channel.send({components: [row]})
         }
     }
         catch(err) {
