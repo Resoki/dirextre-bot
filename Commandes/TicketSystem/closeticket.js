@@ -27,6 +27,7 @@ module.exports = {
       let channelLog = message.guild.channels.cache.find(ch => ch.id.startsWith(global.channelLog));
 
       const embedLog = new Discord.MessageEmbed().setDescription(`${message.author.username} a **fermé** son ticket`).setColor('RED')
+      .setImage(message.author.displayAvatarURL({dynamic: true}))
       channelLog.send({embeds: [embedLog]})
 
     } 
