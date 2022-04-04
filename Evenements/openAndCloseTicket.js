@@ -72,7 +72,7 @@ module.exports = {
         let alreadyChannel = bot.channels.cache.find(c => c.name === `${channelName}`);    
         alreadyChannel.delete()
         let channelLog = interaction.guild.channels.cache.find(ch => ch.id.startsWith(global.channelLog));
-        const embedLog = new MessageEmbed().setDescription(`${interaction.member.user.username} a **fermé** le ticket`).setColor('RED').setImage(interaction.member.user.displayAvatarURL({dynamic: true}))
+        const embedLog = new MessageEmbed().setDescription(`Le ticket de **${interaction.member.user.username}** a été supprimé !`).setColor('RED').setImage(interaction.member.user.displayAvatarURL({dynamic: true}))
         .setTimestamp()
         channelLog.send({embeds: [embedLog]})
    
