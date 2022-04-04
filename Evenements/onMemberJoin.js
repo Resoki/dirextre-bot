@@ -16,7 +16,7 @@ module.exports = {
             return channel.send({embeds: [welcomeEmbed]});
         } 
         catch(err) {
-            return channel.send('Une erreur a eu lieu: ', err);
+            return console.log('Une erreur a eu lieu: ', err);
         }
 	},
 }
