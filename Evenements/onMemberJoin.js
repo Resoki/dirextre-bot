@@ -4,11 +4,13 @@ const global = require('../Config/global.json');
 module.exports = {
 	name: 'guildMemberAdd',
 	once: false,
-	execute(member) {
+	execute(member, bot) {
     try {
         var memberCount = member.guild.memberCount
         console.log(member.user.username)
-        const channel = member.guild.channels.cache.find(channel => channel.id === global.channelJoin);
+        
+        const channel = bot.channels.cache.find(channel => channel.id === global.channelJoin);
+   
         let welcomeEmbed = new MessageEmbed().setTitle(`Nouveau membre`).setDescription(`${member.user.username} vient de rejoindre le serveur !\nTotal membre: ${memberCount} `).setColor('RANDOM')
         channel.send({embeds: [welcomeEmbed]})
         
