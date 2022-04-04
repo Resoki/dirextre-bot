@@ -16,10 +16,14 @@ module.exports = {
         let display =  interaction.member.guild.channels.create(channelName, {
             type: "GUILD_TEXT",
             permissionOverwrites: [
-            {
-                id: interaction.member.user.id,
-                allow: [Permissions.FLAGS.VIEW_CHANNEL, Permissions.FLAGS.SEND_MESSAGES],
-            }
+                {
+                    id: interaction.member.user.id,
+                    deny: [Permissions.FLAGS.VIEW_CHANNEL],
+                },
+                {
+                    id: interaction.member.user.id,
+                    allow: [Permissions.FLAGS.VIEW_CHANNEL, Permissions.FLAGS.READ_MESSAGE_HISTORY, Permissions.FLAGS.SEND_MESSAGES],
+                },
             ],
           }).then((channel) =>{
            //category Probleme IG

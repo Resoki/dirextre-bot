@@ -14,7 +14,7 @@ module.exports = {
         
     } 
     catch(err) {
-        channel.send('Une erreur a eu lieu: ', err);
+        console.log('Une erreur a eu lieu: ', err);
     }
 	},
 }

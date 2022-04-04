@@ -32,7 +32,7 @@ module.exports = {
     } 
   }
   catch(error) {
-    message.reply('Une erreur a eu lieu : ', error)
+    message.reply(`Une erreur a eu lieu: ${error}`)
   }
   
   }
