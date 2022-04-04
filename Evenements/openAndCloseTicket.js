@@ -14,7 +14,7 @@ module.exports = {
         interaction.channel.send(`${interaction.member.user.username}, ton channel a été ouvert`);
 
         let channelLog = interaction.guild.channels.cache.find(ch => ch.id.startsWith(global.channelLog));
-        const embedLog = new MessageEmbed().setDescription(`**${interaction.member.user.username}** a ouvert un ticket !`).setColor('GREEN').setAuthor(interaction.member.user.displayAvatarURL({dynamic: true}))
+        const embedLog = new MessageEmbed().setDescription(`**${interaction.member.user.username}** a ouvert un ticket !`).setColor('GREEN')
         .setTimestamp()
         channelLog.send({embeds: [embedLog]})
         
