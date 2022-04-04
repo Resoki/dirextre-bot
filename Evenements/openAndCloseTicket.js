@@ -17,8 +17,8 @@ module.exports = {
             type: "GUILD_TEXT",
             permissionOverwrites: [
             {
-                id: interaction.member.guild.roles.everyone,
-                deny: [Permissions.FLAGS.VIEW_CHANNEL],
+                id: interaction.member.user.id,
+                allow: [Permissions.FLAGS.VIEW_CHANNEL, Permissions.FLAGS.SEND_MESSAGES],
             }
             ],
           }).then((channel) =>{
@@ -58,7 +58,7 @@ module.exports = {
                   .setStyle('DANGER'),
   
               );
-              channel.setParent('960593260970135593')
+              channel.setParent('960593260970135593') // categorie ticket
               
              channel.send({embeds: [embed], components: [row,row2]})
           });
