@@ -10,7 +10,7 @@ module.exports = {
             const guild = bot.guilds.cache.get(global.guild_id);
             const userCount = guild.memberCount;
             let welcomeEmbed = new MessageEmbed().setTitle(`Ho ! Un nouveau membre  !`)
-            .setDescription(`✨ Bienvenue **${member.user.username}** ✨\n sur le serveur **Voltera !**\n Tu es le **${userCount}** ième !`).setColor('RANDOM')
+            .setDescription(`✨ Bienvenue **${member.user.username}** ✨\n sur **Voltera !**\n Tu es le **${userCount}** ième !`).setColor('RANDOM')
             .setImage(member.user.displayAvatarURL({dynamic: true}))
             .setTimestamp()
             return channel.send({embeds: [welcomeEmbed]});
