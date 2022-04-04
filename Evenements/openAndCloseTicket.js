@@ -58,6 +58,7 @@ module.exports = {
                   .setStyle('DANGER'),
   
               );
+              channel.setParent('960593260970135593')
               
              channel.send({embeds: [embed], components: [row,row2]})
           });
