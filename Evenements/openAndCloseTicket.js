@@ -74,7 +74,7 @@ module.exports = {
         const embedDelete = new MessageEmbed().setTitle('INFO ❌').setDescription('Le ticket va être supprimé !')
         interaction.channel.send({embeds: [embedDelete]}).then((msg)=>{
           setTimeout(()=> {
-            alreadyChannel.delete();
+            msg.delete();
             let channelLog = interaction.guild.channels.cache.find(ch => ch.id.startsWith(global.channelLog));
             const embedLog = new MessageEmbed().setDescription(`${interaction.member.user.username} a **fermé** le ticket`).setColor('RED')
             channelLog.send({embeds: [embedLog]})
