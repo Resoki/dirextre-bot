@@ -18,10 +18,6 @@ module.exports = {
             permissionOverwrites: [
                 {
                     id: interaction.member.user.id,
-                    deny: [Permissions.FLAGS.VIEW_CHANNEL],
-                },
-                {
-                    id: interaction.member.user.id,
                     allow: [Permissions.FLAGS.VIEW_CHANNEL, Permissions.FLAGS.READ_MESSAGE_HISTORY, Permissions.FLAGS.SEND_MESSAGES],
                 },
             ],
@@ -77,6 +73,7 @@ module.exports = {
             msg.delete();
             let channelLog = interaction.guild.channels.cache.find(ch => ch.id.startsWith(global.channelLog));
             const embedLog = new MessageEmbed().setDescription(`${interaction.member.user.username} a **fermé** le ticket`).setColor('RED')
+            .setTimestamp()
             channelLog.send({embeds: [embedLog]})
           }, 2000)
       
