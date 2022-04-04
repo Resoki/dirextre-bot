@@ -68,21 +68,16 @@ module.exports = {
              channel.send({embeds: [embed], components: [row,row2]})
           });
     }
-    if(interaction.customId === 'close-ticket') {
+    if(interaction.isButton() && interaction.customId === 'close-ticket') {
         let alreadyChannel = bot.channels.cache.find(c => c.name === `${channelName}`);    
-        
-       
-        const embedDelete = new MessageEmbed().setTitle('INFO ❌').setDescription('Le ticket va être supprimé !')
-        interaction.channel.send({embeds: [embedDelete]}).then((msg)=>{
-          setTimeout(()=> {
-            msg.delete();
-            let channelLog = interaction.guild.channels.cache.find(ch => ch.id.startsWith(global.channelLog));
-            const embedLog = new MessageEmbed().setDescription(`${interaction.member.user.username} a **fermé** le ticket`).setColor('RED')
-            .setTimestamp()
-            channelLog.send({embeds: [embedLog]})
-          }, 2000)
+        alreadyChannel.delete()
+        let channelLog = interaction.guild.channels.cache.find(ch => ch.id.startsWith(global.channelLog));
+        const embedLog = new MessageEmbed().setDescription(`${interaction.member.user.username} a **fermé** le ticket`).setColor('RED')
+        .setTimestamp()
+        channelLog.send({embeds: [embedLog]})
+   
       
-        })
+        
     }
     if(interaction.customId === 'reclame-ticket'){
         interaction.channel.send(`Le ticket sera traité par ${interaction.member.user.username}`)
