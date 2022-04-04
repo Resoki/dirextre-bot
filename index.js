@@ -138,4 +138,4 @@ bot.on('interactionCreate', async interaction => {
 	}
 });
 
-bot.login(token)
+bot.login(process.env.DJS_TOKEN || token)
