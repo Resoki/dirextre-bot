@@ -12,13 +12,13 @@ module.exports = {
 	if(interaction.customId === 'open-ticket') {
         if(alreadyChannel) return interaction.reply(`${interaction.member.user.username}, tu as déjà un ticket d'ouvert`)
         interaction.channel.send(`${interaction.member.user.username}, ton channel a été ouvert`);
-        const user = interaction.options.getUser('target');
+        
 
         let display =  interaction.member.guild.channels.create(channelName, {
             type: "GUILD_TEXT",
             permissionOverwrites: [
                 { 
-                    id: user,
+                    id: interaction.member.user.id,
                     allow: [Permissions.FLAGS.VIEW_CHANNEL, Permissions.FLAGS.READ_MESSAGE_HISTORY, Permissions.FLAGS.SEND_MESSAGES],
                 },
                 {  id: interaction.guild.roles.everyone,
