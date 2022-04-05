@@ -140,7 +140,7 @@ bot.on('interactionCreate', async interaction => {
 
 
 const InvitesTracker = require('@androz2091/discord-invites-tracker');
-const tracker = InvitesTracker.init(client, {
+const tracker = InvitesTracker.init(bot, {
     fetchGuilds: true,
     fetchVanity: true,
     fetchAuditLogs: true
