@@ -153,12 +153,12 @@ tracker.on('guildMemberAdd', (member, type, invite) => {
 
   if(type === 'normal'){
       db.set('InvitedBy', `Tu as été invité par ${invite.inviter.username}!`)
-      channel.send(`Tu as été invité par ${invite.inviter.username}!`);
+     // channel.send(`Tu as été invité par ${invite.inviter.username}!`);
   }
 
   else if(type === 'vanity'){
       db.set('InvitedBy', `Tu as été invité par ${invite.inviter.username} en utilisant une invitation personnalisée!`)
-      channel.send(`Welcome ${member}! You joined using a custom invite!`);
+      //channel.send(`Welcome ${member}! You joined using a custom invite!`);
   }
 
   else if(type === 'permissions'){

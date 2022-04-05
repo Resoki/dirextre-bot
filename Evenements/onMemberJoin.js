@@ -17,7 +17,7 @@ module.exports = {
             .setThumbnail('https://cdn.discordapp.com/attachments/956919351653589043/960626580391071785/ICONVOLTERA.png')
             .setTimestamp()
             return channel.send({embeds: [welcomeEmbed]}).then(()=> {
-              db.remove('InvitedBy')
+              db.delete('InvitedBy')
             })
         } 
         catch(err) {
