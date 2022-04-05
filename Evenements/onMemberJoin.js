@@ -1,5 +1,6 @@
 const { MessageEmbed } = require("discord.js")
 const global = require('../Config/global.json');
+const db = require('quick.db')
 
 module.exports = {
 	name: 'guildMemberAdd',
