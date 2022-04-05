@@ -9,8 +9,18 @@ module.exports = {
     //Joue à >
 		bot.user.setActivity(global.activityBot);
 		bot.user.setStatus(global.statusBot == true ? 'online' : 'dnd');
+
+     
+    const guild = bot.guilds.cache.get(global.guild_id);
+    var memberCount = guild.memberCount
+    console.log(memberCount)
+
+    const channel = bot.channels.cache.find(channel => channel.id === '898598664795201546');
+    channel.setName(`✨ Membres: ${memberCount} ✨`)
+
 		cron.schedule('* * * * *', () => {
 			console.log('Bot ON');
+      
 		  });
 	},
 }
