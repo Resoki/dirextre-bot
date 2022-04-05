@@ -20,23 +20,16 @@ module.exports = {
         
 
         let display =  interaction.member.guild.channels.create(channelName, {
-            type: "GUILD_TEXT",
-                permissionOverwrites: [
-                    {   
-                        id: interaction.guild.id,
-                        deny: [Permissions.FLAGS.VIEW_CHANNEL]
-                    },
-                    {
-                        id: interaction.user.id,
-                        allow: [Permissions.FLAGS.VIEW_CHANNEL, Permissions.FLAGS.SEND_MESSAGES]
-                    },
-            ],
+            type: "GUILD_TEXT"
           }).then((channel) =>{
            //category Probleme IG
               // channel.setParent(`${global.ticketCategoryIg}`)
               channel.send(`<@${interaction.member.user.id}>`)
               const embed = new MessageEmbed().setTitle('Ticket 🎫').setDescription('Sélectionnez la catégorie de votre ticket pour en ouvrir un !')
               .setFooter(`Vulcarya.fr ${new Date()}`).setColor('BLUE')
+
+              channel.permissionOverwrites.edit(interaction.member.user, { VIEW_CHANNEL: true, SEND_MESSAGES: true });
+            console.log(`permission set to ${interaction.member.user}`);
       
       
               const row = new MessageActionRow()
