@@ -17,7 +17,7 @@ module.exports = {
 		cron.schedule('* * * * *', () => {
 			console.log('Bot ON');
       const channel = bot.channels.cache.find(channel => channel.id === '960553941328863262');
-      channel.setName(`✨ Membres: ${memberCount} ✨`)
+      channel.setName(`Membres: ${memberCount}`)
       
 		  });
 	},
