@@ -16,9 +16,7 @@ module.exports = {
             .setDescription(`✨ Bienvenue **${member.user.username}** ✨\n sur **Voltera !**\n ${!messageInvit ? '' : messageInvit}`).setColor('RANDOM')
             .setThumbnail('https://cdn.discordapp.com/attachments/956919351653589043/960626580391071785/ICONVOLTERA.png')
             .setTimestamp()
-            return channel.send({embeds: [welcomeEmbed]}).then(()=> {
-              db.delete('InvitedBy')
-            })
+            return channel.send({embeds: [welcomeEmbed]})
         } 
         catch(err) {
             return console.log('Une erreur a eu lieu: ', err);

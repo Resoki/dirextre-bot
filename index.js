@@ -150,6 +150,9 @@ const tracker = InvitesTracker.init(bot, {
 tracker.on('guildMemberAdd', (member, type, invite) => {
 
   const channel = member.guild.channels.cache.find(channel => channel.id === global.channelJoin);
+  if(db.get('InvitedBy')) {
+    db.set('InvitedBy', '')
+  }
 
   if(type === 'normal'){
       db.set('InvitedBy', `Tu as été invité par ${invite.inviter.username}!`)
