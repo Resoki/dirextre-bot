@@ -13,7 +13,7 @@ module.exports = {
         if(alreadyChannel) return interaction.reply(`${interaction.member.user.username}, tu as déjà un ticket d'ouvert`)
         interaction.channel.send(`${interaction.member.user.username}, ton channel a été ouvert`);
 
-        let channelLog = interaction.guild.channels.cache.find(ch => ch.id.startsWith(global.channelLog));
+        let channelLog = interaction.guild.channels.cache.find(ch => ch.id ===global.channelLog);
         const embedLog = new MessageEmbed().setDescription(`**${interaction.member.user.username}** a ouvert un ticket !`).setColor('GREEN')
         .setTimestamp()
         channelLog.send({embeds: [embedLog]})
