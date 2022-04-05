@@ -1,5 +1,6 @@
 const { MessageEmbed } = require("discord.js")
 const global = require('../Config/global.json');
+const logo = require('../images/voltera.png')
 
 module.exports = {
 	name: 'guildMemberAdd',
@@ -12,7 +13,7 @@ module.exports = {
             let welcomeEmbed = new MessageEmbed().setTitle(`Ho ! Un nouveau membre  !`)
             .setDescription(`✨ Bienvenue **${member.user.username}** ✨\n sur **Voltera !**\n Tu es le **${userCount}** ième !`).setColor('RANDOM')
             .setThumbnail(member.user.displayAvatarURL({dynamic: true}))
-            .setImage('https://cdn.discordapp.com/attachments/956919351653589043/960626580391071785/ICONVOLTERA.png')
+            .setImage(logo)
             .setTimestamp()
             return channel.send({embeds: [welcomeEmbed]});
         } 
