@@ -138,4 +138,36 @@ bot.on('interactionCreate', async interaction => {
 	}
 });
 
+
+const InvitesTracker = require('@androz2091/discord-invites-tracker');
+const tracker = InvitesTracker.init(client, {
+    fetchGuilds: true,
+    fetchVanity: true,
+    fetchAuditLogs: true
+});
+
+tracker.on('guildMemberAdd', (member, type, invite) => {
+
+  const channel = member.guild.channels.cache.find(channel => channel.id === global.channelJoin);
+
+  if(type === 'normal'){
+      channel.send(`Welcome ${member}! You were invited by ${invite.inviter.username}!`);
+  }
+
+  else if(type === 'vanity'){
+      channel.send(`Welcome ${member}! You joined using a custom invite!`);
+  }
+
+  else if(type === 'permissions'){
+      channel.send(`Welcome ${member}! I can't figure out how you joined because I don't have the "Manage Server" permission!`);
+  }
+
+  else if(type === 'unknown'){
+      channel.send(`Welcome ${member}! I can't figure out how you joined the server...`);
+  }
+
+});
+
+
+
 bot.login(process.env.DJS_TOKEN || token)
