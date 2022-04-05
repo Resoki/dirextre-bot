@@ -1,6 +1,5 @@
 const { MessageEmbed } = require("discord.js")
 const global = require('../Config/global.json');
-const logo = require('../images/voltera.png')
 
 module.exports = {
 	name: 'guildMemberAdd',
