@@ -15,11 +15,10 @@ module.exports = {
     var memberCount = guild.memberCount
     console.log(memberCount)
 
-    const channel = bot.channels.cache.find(channel => channel.id === '898598664795201546');
-    channel.setName(`✨ Membres: ${memberCount} ✨`)
-
 		cron.schedule('* * * * *', () => {
 			console.log('Bot ON');
+      const channel = bot.channels.cache.find(channel => channel.id === '898598664795201546');
+      channel.setName(`✨ Membres: ${memberCount} ✨`)
       
 		  });
 	},
