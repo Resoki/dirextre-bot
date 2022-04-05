@@ -11,7 +11,7 @@ module.exports = {
 
   run: async (client, message, args) => {
  
-    const guild = client.guilds.cache.get("845724675156869181");
+    const guild = client.guilds.cache.get("782788186141229076");
     var memberCount = guild.memberCount
     console.log(memberCount)
 
