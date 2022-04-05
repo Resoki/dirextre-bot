@@ -1,7 +1,8 @@
 const { Client, Collection, Intents } = require('discord.js');
 const fs = require('fs');
 const { GiveawaysManager } = require('discord-giveaways');
-const global = require('./Config/global.json')
+const global = require('./Config/global.json');
+const db = require('quick.db')
 
 const bot = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_PRESENCES, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_MESSAGE_REACTIONS] })
 bot.commands = new Collection()
@@ -151,10 +152,12 @@ tracker.on('guildMemberAdd', (member, type, invite) => {
   const channel = member.guild.channels.cache.find(channel => channel.id === global.channelJoin);
 
   if(type === 'normal'){
-      channel.send(`Welcome ${member}! You were invited by ${invite.inviter.username}!`);
+      db.set('InvitedBy', `Tu as été invité par ${invite.inviter.username}!`)
+      channel.send(`Tu as été invité par ${invite.inviter.username}!`);
   }
 
   else if(type === 'vanity'){
+      db.set('InvitedBy', `Tu as été invité par ${invite.inviter.username} en utilisant une invitation personnalisée!`)
       channel.send(`Welcome ${member}! You joined using a custom invite!`);
   }
 
