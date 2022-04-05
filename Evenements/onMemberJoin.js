@@ -13,7 +13,7 @@ module.exports = {
             let welcomeEmbed = new MessageEmbed().setTitle(`Ho ! Un nouveau membre  !`)
             .setDescription(`✨ Bienvenue **${member.user.username}** ✨\n sur **Voltera !**\n Tu es le **${userCount}** ième !`).setColor('RANDOM')
             .setThumbnail(member.user.displayAvatarURL({dynamic: true}))
-            .setImage(logo)
+            .setImage('https://cdn.discordapp.com/attachments/956919351653589043/960626580391071785/ICONVOLTERA.png')
             .setTimestamp()
             return channel.send({embeds: [welcomeEmbed]});
         } 
