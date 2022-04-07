@@ -12,12 +12,12 @@ module.exports = {
     const channelName =`ticket-${message.author.username}`;
     let display = message.guild.channels.cache.find(ch => ch.name.startsWith(channelName.toLowerCase()));
 
-    const embedError = new MessageEmbed().setTitle('INFO ❌').setDescription('Tu dois etre dans le ticket pour pouvoir fermer !')
+    const embedError = new MessageEmbed().setTitle('INFO ❌').setDescription('Tu dois etre dans le ticket pour pouvoir fermer !').setColor('ORANGE')
 
     if(display != message.channel) return message.channel.send({embeds: [embedError]})
 
     if(channelName) {
-      const embedDelete = new MessageEmbed().setTitle('INFO ❌').setDescription('Le ticket va être supprimé !')
+      const embedDelete = new MessageEmbed().setTitle('INFO ❌').setDescription('Le ticket va être supprimé !').setColor('ORANGE')
       message.channel.send({embeds: [embedDelete]}).then((msg)=>{
         setTimeout(()=> {
           message.channel.delete()
@@ -26,7 +26,7 @@ module.exports = {
       })
       let channelLog = message.guild.channels.cache.find(ch => ch.id.startsWith(global.channelLog));
 
-      const embedLog = new Discord.MessageEmbed().setDescription(`${message.author.username} a **fermé** son ticket`).setColor('RED')
+      const embedLog = new Discord.MessageEmbed().setDescription(`${message.author.username} a **fermé** son ticket`).setColor('ORANGE')
       channelLog.send({embeds: [embedLog]})
 
     } 

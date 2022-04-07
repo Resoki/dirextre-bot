@@ -16,7 +16,7 @@ module.exports = {
           const inviteCounter = {
            
           }
-          const embed = new MessageEmbed().setTitle('🏆  Top Invitation 🏆 ').setDescription('Top invites on server')
+          const embed = new MessageEmbed().setTitle('🏆  Top Invitation 🏆 ').setDescription('Top invites on server').setColor('ORANGE')
           
     
           invites.forEach((invite) => {
@@ -42,16 +42,16 @@ module.exports = {
           for (const [iteration,invite] of sortedInvites.entries()) {
             const count = inviteCounter[invite];
             if((iteration+1) === 1) {
-              embed.addField(`#${iteration + 1} 🥇`, `\n**${invite}** a invité **${!count ? 0 : count}** membres!`).setColor('RANDOM')
+              embed.addField(`#${iteration + 1} 🥇`, `\n**${invite}** a invité **${!count ? 0 : count}** membres!`);
             }
             else if((iteration+1) === 2) {
-              embed.addField(`#${iteration + 1} 🥈`, `\n**${invite}** a invité **${!count ? 0 : count}** membres!`).setColor('RANDOM')
+              embed.addField(`#${iteration + 1} 🥈`, `\n**${invite}** a invité **${!count ? 0 : count}** membres!`);
             }
             else if((iteration+1) === 3) {
-              embed.addField(`#${iteration + 1} 🥉`, `\n**${invite}** a invité **${!count ? 0 : count}** membres!`).setColor('RANDOM')
+              embed.addField(`#${iteration + 1} 🥉`, `\n**${invite}** a invité **${!count ? 0 : count}** membres!`);
             }
             else {
-              embed.addField(`#${iteration + 1}`, `\n${invite} a invité **${!count ? 0 : count}** membres!`).setColor('RANDOM')
+              embed.addField(`#${iteration + 1}`, `\n${invite} a invité **${!count ? 0 : count}** membres!`);
             }
             
           }

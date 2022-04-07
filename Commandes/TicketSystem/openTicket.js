@@ -10,7 +10,7 @@ module.exports = {
     try {
         const channelName =`ticket-${message.author.username}`;
         const embed = new MessageEmbed().setTitle('Ticket ✉️').setDescription('Sélectionnez la catégorie de votre ticket pour en ouvrir un !')
-        .setFooter(`Vulcarya.fr ${new Date()}`).setColor('BLUE')
+        .setFooter(`Vulcarya.fr ${new Date()}`).setColor('ORANGE')
 
         const row = new MessageActionRow()
             .addComponents(

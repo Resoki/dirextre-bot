@@ -6,14 +6,14 @@ module.exports = {
 	once: false,
 	execute(message) {
         if(global.antiInvites === true) {
-            const inviteForbiden = new MessageEmbed().setTitle('Anti-Invites').setDescription(`Il est interdit de mettre des liens d'invitations !`)
+            const inviteForbiden = new MessageEmbed().setTitle('Anti-Invites').setDescription(`Il est interdit de mettre des liens d'invitations !`).setColor('ORANGE')
             if(message.content.includes('https://discord.gg')) {
                 message.delete();
                 return message.channel.send({embeds: [inviteForbiden]})
             } 
         }
        if(global.antiLinks === true) {
-        const linkForbiden = new MessageEmbed().setTitle('Anti-Links').setDescription(`Il est interdit de mettre des liens !`)
+        const linkForbiden = new MessageEmbed().setTitle('Anti-Links').setDescription(`Il est interdit de mettre des liens !`).setColor('ORANGE')
         if(message.content.includes('https')) {
             message.channel.send({embeds: [linkForbiden]})
             return message.delete()

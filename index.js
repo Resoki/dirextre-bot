@@ -165,10 +165,12 @@ tracker.on('guildMemberAdd', (member, type, invite) => {
   }
 
   else if(type === 'permissions'){
+    db.set('InvitedBy', ``)
       channel.send(`Welcome ${member}! I can't figure out how you joined because I don't have the "Manage Server" permission!`);
   }
 
   else if(type === 'unknown'){
+    db.set('InvitedBy', ``)
       channel.send(`Welcome ${member}! I can't figure out how you joined the server...`);
   }
 
